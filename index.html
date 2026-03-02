@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hybrid Apocalypse – Anime Art Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Hybrid Apocalypse anime art gallery by DemonDogsRevenge666 – dark gothic anime, demons, vampires, gore and apocalyptic vibes." />
+
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #050508;
+      --bg-alt: #0b0b11;
+      --card-bg: rgba(10, 10, 18, 0.95);
+      --accent: #ff2d8b;
+      --accent-soft: #ff7ac1;
+      --accent-neon: #50f5ff;
+      --text-main: #f5f5f5;
+      --text-muted: #9a9aa3;
+      --danger: #ff0040;
+      --border-soft: rgba(255, 255, 255, 0.06);
+      --glow-strong: 0 0 22px rgba(255, 45, 139, 0.9);
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.75);
+      --transition-fast: 0.18s ease-out;
+      --transition-med: 0.28s ease-out;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #101020 0, #040408 55%, #000000 100%);
+      color: var(--text-main);
+      font-family: "Montserrat", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      min-height: 100%;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        radial-gradient(circle at 0 0, rgba(255,255,255,0.03) 0, transparent 55%);
+      background-size: 100% 2px, 340px 340px;
+      mix-blend-mode: soft-light;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    a { color: var(--accent-soft); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .page-shell {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    header.site-header {
+      position: relative;
+      border-radius: var(--radius-xl);
+      padding: 22px 20px;
+      background: linear-gradient(145deg, rgba(5,5,12,0.98), rgba(15,5,22,0.96));
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      margin-bottom: 28px;
+    }
+
+    header.site-header::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255, 45, 139, 0.15), transparent 60%),
+        radial-gradient(circle at 100% 100%, rgba(80, 245, 255, 0.15), transparent 55%);
+      opacity: 0.9;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 1;
+    }
+
+    .site-title-block { max-width: 640px; }
+
+    .tagline-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: radial-gradient(circle at 0 0, rgba(255, 45, 139, 0.28), transparent 70%);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 10px;
+      color: var(--accent-soft);
+      margin-bottom: 4px;
+    }
+
+    .tagline-label span.dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(255,45,139,0.9);
+    }
+
+    h1.site-title {
+      font-family: "Rajdhani", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 4vw, 2.3rem);
+      margin: 0 0 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      text-shadow: 0 0 9px rgba(255, 45, 139, 0.8);
+    }
+
+    .site-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.5;
+    }
+
+    .badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .badge-chip {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      background: rgba(0,0,0,0.32);
+    }
+
+    .badge-chip.badge-r18 {
+      border-color: var(--danger);
+      color: var(--danger);
+      box-shadow: 0 0 16px rgba(255, 0, 64, 0.55);
+    }
+
+    .header-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 220px;
+      align-items: flex-end;
+    }
+
+    .header-primary-btn,
+    .header-secondary-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 999px;
+      padding: 9px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid transparent;
+      background: none;
+      color: inherit;
+      text-decoration: none;
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .header-primary-btn {
+      background: radial-gradient(circle at 0 0, var(--accent) 0, #8b0044 32%, #1a0211 70%);
+      border-color: rgba(255,255,255,0.16);
+      color: #fff;
+      box-shadow: var(--glow-strong);
+    }
+
+    .header-primary-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 28px rgba(255, 45, 139, 1);
+    }
+
+    .header-secondary-link {
+      border-color: rgba(255,255,255,0.24);
+      color: var(--accent-neon);
+      background: rgba(0,0,0,0.4);
+    }
+
+    .header-secondary-link:hover {
+      background: rgba(4,10,20,0.9);
+      transform: translateY(-1px);
+    }
+
+    .header-secondary-link span.arrow {
+      font-size: 14px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.3fr);
+      gap: 18px;
+      margin-bottom: 26px;
+    }
+
+    @media (max-width: 830px) {
+      .content-grid { grid-template-columns: minmax(0, 1fr); }
+      .header-inner { align-items: flex-start; }
+      .header-actions { align-items: flex-start; }
+    }
+
+    .panel {
+      border-radius: var(--radius-lg);
+      background: linear-gradient(150deg, var(--bg-alt), #050509);
+      border: 1px solid var(--border-soft);
+      padding: 16px 16px 14px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(130deg, rgba(255,45,139,0.12), transparent 40%, rgba(80,245,255,0.07), transparent 80%);
+      mix-blend-mode: soft-light;
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .panel > * { position: relative; z-index: 1; }
+
+    .panel-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .panel-title {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent-soft);
+      font-weight: 600;
+    }
+
+    .panel-title-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 5px;
+      border: 1px solid rgba(255,255,255,0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: var(--accent-neon);
+      box-shadow: 0 0 10px rgba(80,245,255,0.7);
+      background: rgba(0,0,0,0.7);
+    }
+
+    p { margin: 0; }
+
+    .warning-text {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 8px;
+    }
+
+    .warning-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .warning-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      background: rgba(15,0,6,0.7);
+    }
+
+    .warning-tag.danger {
+      border-color: var(--danger);
+      color: var(--danger);
+    }
+
+    .tiny-note {
+      font-size: 0.7rem;
+      color: #6b6b77;
+      margin-top: 4px;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .filter-left {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+
+    .filter-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .filter-pill {
+      padding: 4px 10px;
+      font-size: 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.24);
+      background: rgba(4, 4, 10, 0.85);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
+    }
+
+    .filter-pill.active {
+      border-color: var(--accent);
+      background: radial-gradient(circle at 0 0, rgba(255, 45, 139, 0.45), rgba(4,4,8, 0.95));
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 0 16px rgba(255,45,139,0.8);
+    }
+
+    .filter-pill:hover { transform: translateY(-1px); }
+
+    .filter-right,
+    .filter-right span {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .art-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--card-bg);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow-soft);
+      cursor: pointer;
+      transform-origin: center;
+      transition: transform var(--transition-med), box-shadow var(--transition-med), border-color var(--transition-med), filter var(--transition-med);
+    }
+
+    .art-thumb-wrapper {
+      position: relative;
+      overflow: hidden;
+      max-height: 220px;
+    }
+
+    .art-thumb-wrapper img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform var(--transition-med), filter var(--transition-med), opacity var(--transition-med);
+      filter: saturate(1.1) contrast(1.1);
+    }
+
+    .art-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 0 0, rgba(255,45,139,0.22), transparent 60%);
+      mix-blend-mode: soft-light;
+      opacity: 0;
+      transition: opacity var(--transition-med);
+    }
+
+    .art-card:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.95);
+      border-color: rgba(255, 45, 139, 0.8);
+    }
+
+    .art-card:hover img {
+      transform: scale(1.07) translateY(-2px);
+      filter: saturate(1.3) contrast(1.2);
+    }
+
+    .art-card:hover::after { opacity: 1; }
+
+    .art-overlay-gradient {
+      position: absolute;
+      inset: 35% 0 0 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+      pointer-events: none;
+    }
+
+    .art-meta {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 11px 10px 9px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      z-index: 2;
+    }
+
+    .art-title {
+      font-family: "Rajdhani", system-ui, sans-serif;
+      font-size: 0.93rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      margin: 0;
+    }
+
+    .art-tags-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .art-tag {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: rgba(0,0,0,0.7);
+    }
+
+    .art-tag.pink { border-color: var(--accent-soft); color: var(--accent-soft); }
+    .art-tag.cyan { border-color: var(--accent-neon); color: var(--accent-neon); }
+    .art-tag.r18 { border-color: var(--danger); color: var(--danger); }
+
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .lightbox-backdrop.active { display: flex; }
+
+    .lightbox-inner {
+      max-width: 96vw;
+      max-height: 90vh;
+      background: #05050a;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 0 30px rgba(255,45,139,0.7);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .lightbox-img-wrap {
+      max-height: 80vh;
+      overflow: hidden;
+    }
+
+    .lightbox-img-wrap img {
+      display: block;
+      max-width: 100%;
+      max-height: 80vh;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    .lightbox-meta {
+      padding: 10px 14px 10px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.7);
+      background: rgba(0,0,0,0.8);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 16px;
+      line-height: 1;
+      transform: translateY(0);
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .lightbox-close:hover {
+      background: var(--danger);
+      box-shadow: 0 0 16px rgba(255,0,64,0.8);
+      transform: translateY(-1px);
+    }
+
+    .age-gate {
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top, #1a0011, #000000 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .age-gate.hidden { display: none; }
+
+    .age-gate-card {
+      max-width: 430px;
+      width: 100%;
+      padding: 22px 18px 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.17);
+      background: linear-gradient(150deg, #050509, #200012);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.95);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .age-gate-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 0 0, rgba(255,0,64,0.3), transparent 70%),
+        radial-gradient(circle at 100% 100%, rgba(80,245,255,0.25), transparent 60%);
+      mix-blend-mode: screen;
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .age-gate-card > * { position: relative; z-index: 1; }
+
+    .age-gate-title {
+      font-family: "Rajdhani", system-ui, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.9rem;
+      color: var(--danger);
+      margin-bottom: 4px;
+    }
+
+    .age-gate-huge {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 8px;
+      text-shadow: 0 0 18px rgba(255,0,64,0.9);
+    }
+
+    .age-gate-text {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .age-gate-buttons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .age-gate-btn {
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(0,0,0,0.85);
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      cursor: pointer;
+      transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .age-gate-btn.primary {
+      background: radial-gradient(circle at 0 0, var(--accent), #7b0034 40%, #0e0206 90%);
+      box-shadow: var(--glow-strong);
+    }
+
+    .age-gate-btn.primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 0 24px rgba(255,45,139,1);
+    }
+
+    .age-gate-btn.secondary:hover {
+      background: rgba(60,0,0,0.9);
+      border-color: var(--danger);
+    }
+
+    .age-gate-note {
+      font-size: 0.72rem;
+      color: #747485;
+    }
+
+    footer.site-footer {
+      max-width: 1200px;
+      margin: 24px auto 0;
+      padding: 12px 16px 24px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    footer.site-footer span.brand { color: var(--accent-soft); }
+  </style>
+</head>
+<body>
+
+  <!-- AGE GATE -->
+  <div class="age-gate" id="ageGate">
+    <div class="age-gate-card">
+      <div class="age-gate-title">CONTENT WARNING</div>
+      <div class="age-gate-huge">18+ ONLY</div>
+      <p class="age-gate-text">
+        This gallery features <strong>mature anime art</strong> from the Hybrid Apocalypse universe –
+        including gore, horror, dark humor, and NSFW themes.<br><br>
+        By entering, you confirm you are an adult and comfortable with this kind of content.
+      </p>
+      <div class="age-gate-buttons">
+        <button class="age-gate-btn primary" id="ageYes">I am 18+ – Enter</button>
+        <button class="age-gate-btn secondary" id="ageNo">No / Exit</button>
+      </div>
+      <div class="age-gate-note">
+        If you’re a minor, please close this page. This gallery is not for you.
+      </div>
+    </div>
+  </div>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <div class="header-inner">
+        <div class="site-title-block">
+          <div class="tagline-label">
+            <span class="dot"></span>
+            HYBRID APOCALYPSE • ANIME GALLERY
+          </div>
+          <h1 class="site-title">Danesmee &amp; Demons – Anime Vault</h1>
+          <p class="site-subtitle">
+            A dedicated corner of the Hybrid Apocalypse universe for your <strong>anime-styled art</strong> –
+            gothic vampires, demon girls, cursed school uniforms, and apocalyptic waifus drenched in chaos.
+          </p>
+          <div class="badges-row">
+            <div class="badge-chip badge-r18">R-18+ Horror</div>
+            <div class="badge-chip">Gothic Anime</div>
+            <div class="badge-chip">Blood &amp; Dark Comedy</div>
+          </div>
+        </div>
+        <div class="header-actions">
+          <a href="https://ddr666.neocities.org/" class="header-primary-btn">⬅ Back to Main Hybrid Apocalypse Site</a>
+          <a href="https://www.pixiv.net/en/users/120310030" target="_blank" rel="noopener" class="header-secondary-link">
+            <span>View more on Pixiv</span>
+            <span class="arrow">↗</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-grid">
+      <section class="panel">
+        <div class="panel-title-row">
+          <div class="panel-title-icon">!</div>
+          <div class="panel-title">About this Gallery</div>
+        </div>
+        <p class="warning-text">
+          This page is meant for your <strong>anime-focused Hybrid Apocalypse art</strong> – things like
+          Danesmee in anime form, Draculaura-style crossovers, succubus designs, and stylized versions
+          of your characters from Unity / DAZ / VRoid renders.
+        </p>
+        <p class="warning-text">
+          Edit the simple image list at the bottom of this file to add or remove artworks.
+          Each block is independent, so you can duplicate without breaking anything.
+        </p>
+      </section>
+
+      <aside class="panel">
+        <div class="panel-title-row">
+          <div class="panel-title-icon">⚠</div>
+          <div class="panel-title">Content Warning</div>
+        </div>
+        <p class="warning-text">
+          This gallery may include:
+        </p>
+        <div class="warning-tags">
+          <div class="warning-tag danger">Gore</div>
+          <div class="warning-tag danger">Violence</div>
+          <div class="warning-tag">Demons &amp; Vampires</div>
+          <div class="warning-tag">NSFW themes</div>
+          <div class="warning-tag">Dark Humor</div>
+        </div>
+        <p class="tiny-note">
+          All characters are fictional. This is <strong>art for adults</strong>, not real-world endorsement of any behaviour.
+        </p>
+      </aside>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filter-bar">
+      <div class="filter-left">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-pill active" data-filter="all">All</button>
+        <button class="filter-pill" data-filter="danesmee">Danesmee</button>
+        <button class="filter-pill" data-filter="vampire">Vampire / Succubus</button>
+        <button class="filter-pill" data-filter="school">Uniform / School</button>
+        <button class="filter-pill" data-filter="demon">Demons &amp; Monsters</button>
+        <button class="filter-pill" data-filter="nsfw">NSFW</button>
+      </div>
+      <div class="filter-right">
+        <span>Edit the image list in the script to keep growing your anime vault.</span>
+      </div>
+    </div>
+
+    <!-- GALLERY GRID (FILLED BY JS) -->
+    <section class="gallery-grid" id="galleryGrid"></section>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox-backdrop" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image">✕</button>
+      <div class="lightbox-img-wrap">
+        <img id="lightboxImg" src="" alt="">
+      </div>
+      <div class="lightbox-meta">
+        <div id="lightboxTitle">Hybrid Apocalypse Anime Art</div>
+        <div>Click outside or press ESC to close.</div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div>© 2019–2026 <span class="brand">DemonDogsRevenge666</span>. All Hybrid Apocalypse characters &amp; art belong to their creator.</div>
+    <div>This page is a fan-hosted anime vault. Do not reupload or steal without permission.</div>
+  </footer>
+
+  <script>
+    // --- AGE GATE ---
+    (function() {
+      const gate = document.getElementById('ageGate');
+      const yes = document.getElementById('ageYes');
+      const no = document.getElementById('ageNo');
+      const storageKey = 'ha_anime_gallery_18';
+
+      try {
+        const flag = localStorage.getItem(storageKey);
+        if (flag === 'true') gate.classList.add('hidden');
+      } catch (e) {}
+
+      yes.addEventListener('click', () => {
+        gate.classList.add('hidden');
+        try { localStorage.setItem(storageKey, 'true'); } catch (e) {}
+      });
+
+      no.addEventListener('click', () => {
+        window.location.href = 'https://www.google.com';
+      });
+    })();
+
+    // ----------------------------------------------------
+    // 1) EDIT BELOW: ADD / DUPLICATE YOUR ART HERE
+    // Each block = one image card.
+    // url: image URL
+    // title: card + lightbox title
+    // categories: space-separated tags (danesmee, vampire, demon, nsfw, school, etc.)
+    // To add more art, COPY + PASTE one whole galleryData.push({ ... }); block.
+    // ----------------------------------------------------
+    const galleryData = [];
+
+   galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/AnimeSuccubusDAnesmeeAndLauraInGraveyeard_1.png",
+      title: "Laura And Succubus Danesmee In Graveyard",
+      categories: "danesmee vampire laura"
+    });
+
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/AnimeSuccubusDAnesmeeAndLauraInGraveyeardDAnesmeeeatsbody_1.png",
+      title: "Laura And Danesmee In Graveyard 2",
+      categories: "danesmee vampire laura"
+    });
+
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/73310841_692526864489571_1579764849125844781_n.jpg",
+      title: "Danesmee Romanova in snow dead cow",
+      categories: "danesmee vampire"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/75534196_810640739392633_5162353909020894428_n.jpg",
+      title: "Danesmee Romanova in forest dead Deer Gore",
+      categories: "danesmee vampire"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/danesmeeBloodFaontin1.png",
+      title: "Danesmee Romanova at blood fountain",
+      categories: "danesmee gore vampire"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/DanesmeeRoamnovaAttacksTheRich_2025.png",
+      title: "Danesmee Attacks the Rich",
+      categories: "danesmee gore vampire"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/022.png",
+      title: "Love in the grass- anthony and tayah",
+      categories: "romance school/uniform antilaw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/0.11.png",
+      title: "Love in the grass- anthony and tayah",
+      categories: "romance school/uniform antilaw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/9.1.png",
+      title: "the anti-law blows demon head off",
+      categories: "antilaw demon gore"
+    });
+    
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-01-25-22-57-22-81_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee Stabbed And Wounded By Cultist",
+      categories: "danesmee gore cultist horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/15.png",
+      title: "Danesmee Stabbed And Wounded By Cultist the anti-law kills a culitst",
+      categories: "danesmee antilaw cultist horror demon"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/16.png",
+      title: "The Antilaw brutally guts cultist, danesmee innocent blood spills",
+      categories: "danesmee theantilaw gore cultist demon horror"
+    });
+
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/IMG_20231201_220907.jpg",
+      title: "the Anti-Law holding wounded danesmee",
+      categories: "antilaw danesmee gore vampire horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/IMG_20231201_224846.jpg",
+      title: "Anime The Anti-Law fire shotgun",
+      categories: "antilaw gun demon"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/2.1.png",
+      title: " the dark Witch with her spell book and curse about to awaken ockay",
+      categories: "witch demon horror gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/3.131313.png",
+      title: " the Dark Witch chanting from book",
+      categories: "witch demon horror gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/4.1.png",
+      title: "The Dark Witch- Ockay Rises From the Grave in blood form",
+      categories: "demon monster horror gore"
+    });
+    
+    
+  galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/5.1.png",
+      title: "Ockay Has Arisen- the dark witches command",
+      categories: "witch demon monster"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/6.1.png",
+      title: "Ockay now is on the hunt",
+      categories: "witch demon monster"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/7.1.png",
+      title: "Ockay approaching rich dad and his daughter daisy in a sketchy street",
+      categories: "demon monster horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/8.1.png",
+      title: "Ockay kills daisy infront of dad with his jaws in her neck",
+      categories: "demon monster gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/11.1.png",
+      title: "the dad punches ockay for killing his daughter",
+      categories: "demon monster horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/13.2.png",
+      title: "Ockay now kills rich dad by ripping his guts out",
+      categories: "demon monster gore horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/14.1.png",
+      title: "Danesmee Sinks Her fangs into deer gore and hunt",
+      categories: "danesmee horror gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/15.1.png",
+      title: "The Anti-law and danesmee bringing deer back to camp",
+      categories: "antilaw danesmee horror gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/IMG_20241115_141654.png",
+      title: "The Anti-law and danesmee campout",
+      categories: "antilaw danesmee horror gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/19.1.png",
+      title: "The Anti-law and danesmee approach cabbin",
+      categories: "antilaw gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/IMG_20241116_132404.png",
+      title: "The Anti-law Takes Out demon In front of danesmee(return of ockay comic)",
+      categories: "antilaw gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/42.png",
+      title: "The dark witches lair- return of ockay comic",
+      categories: "witch gore demon"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/43.png",
+      title: "The dark witch preparing to sacrifice a goth school girl",
+      categories: "witch horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/44.png",
+      title: "The dark witch kills school girl infront of danesmee preparing to make flesh soup",
+      categories: "witch gore horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/47.png",
+      title: "The Anti-law about to fight ockay the helldog",
+      categories: "antilaw demon gore "
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/48.png",
+      title: "the anti-law slashes ockays face",
+      categories: "antilaw demon gore "
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/49.png",
+      title: "The Anti-law and ockay brawl- ockay bites anti-laws hand and anti-law stabs ockays neck",
+      categories: "antilaw demon gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/postApocalypesFileTalAndDanesmee.png",
+      title: "the antilaw with danesmee",
+      categories: "antilaw monster danesmee"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/BloodDemon_And_Vampire_feeding.png",
+      title: "Vampire feeding on clone Cathy and danesmee",
+      categories: "danesmee demon vampire feeding"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/BloodDemon_And_Vampire_feedingcomic.png",
+      title: "Vampire Feeding comic Cathy And Danesmee",
+      categories: "demon danesmee vampire gore horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-11-02-21-45-51-38_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Anime Danesmee Feeding on Clicker",
+      categories: "danesmee vampire nsfw gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-11-02-21-45-09-62_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Anime Danesmee Feeding On Clicker",
+      categories: "danesmee vampire nsfw gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-11-02-21-46-17-10_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: " ellie Wiliams shooting and danesmee feeding on clicker ",
+      categories: "elliewilliams danesmee nsfw gore horror vampire nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-11-02-21-45-23-06_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Anime ellie shooting",
+      categories: "ellie demon horror nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-11-02-21-46-04-13_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Anime ellie shooting cicker gore",
+      categories: "ellie demon horror nsfw"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2023-12-18-21-15-10-92_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Anime danesmee Clone in stomach",
+      categories: "danesmee gore nsfw"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2025-05-07-10-14-27-06_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee Romanova Eats pizza",
+      categories: "danesmee school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2025-05-07-10-14-09-18_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Anime Danesmee Eating pizza 2",
+      categories: "danesmee school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/cathyInCastle.png",
+      title: "Cathy in Castle",
+      categories: "demon cathy nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/cathy7.1.png",
+      title: "Cathy holding clone head",
+      categories: "demon gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/cathyeatingflesh2.png",
+      title: "Cathy eating flesh",
+      categories: "demon gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/cathy_horns_3.png",
+      title: "Cathy horns 1",
+      categories: "demon cathy"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Cathy_horns_1.png",
+      title: "Cathy horns 2",
+      categories: "demon cathy"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/cathy_horns_F_4.png",
+      title: "Cathy horns got gas",
+      categories: "demon cathy nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/0.png",
+      title: "Cathy and the anti-law approach building",
+      categories: "antilaw demon nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/1.png",
+      title: "The Anti-Law stabs posh boy infront of dad and raiding",
+      categories: "antilaw gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/112.png",
+      title: "Cathy feeding on posh boy flesh and anti-law kills posh dad",
+      categories: "demon gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/3.png",
+      title: "the anti-law and cathy walk away from exlpoding building cathy set alight to",
+      categories: "cathy antilaw nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-05-21-20-47-16-02_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee Fight George Walsh her bully",
+      categories: "danesmee fight vampire nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-05-24-14-34-28-03_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee punches into George Walshs Abdoman gore",
+      categories: "danesmee gore nsfw vampire fight"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2024-05-21-20-46-48-44_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee punches into george Walsh Abdoman 2",
+      categories: "danesmee gore nsfw vampire horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/1DanesmeeAndDraculauraEatingCharlieBucketCorpseGore_1.remini-enhanced.jpg",
+      title: "Anime Danesmee And Draculaura feed on clones",
+      categories: "draculaura danesmee gore school/uniform nsfw horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/DanesmeeAndDraculaura_1.remini-enhanced.png",
+      title: "Anime Draculaura And Danesmee feed on charlie bucket clones",
+      categories: "draculaura danesmee gore school/uniform vampire  nsfw horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/2DanesmeeAndDraculauraEatingCharlieBucketCorpseGore_1.remini-enhanced.png",
+      title: "Anime Danesmee Feeding on charlie clone brains",
+      categories: "danesmee gore nsfw school/uniform vampire horror"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/3DanesmeeAndDraculauraEatingCharlieBucketCorpseGore_.png",
+      title: "Draculaura and danesmee Eating Gore And Intestines",
+      categories: "Draculaura danesmee gore nsfw school/uniform vampire"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/1DraculauraDecapitatesCahrlieBucket_2024.remini-enhanced.png",
+      title: "Draculaura Decapitates Charlie Gore",
+      categories: "draculaura gore nsfw vampire school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/2DraculauraDecapitatesCahrlieBucket_2024.remini-enhanced.png",
+      title: "Draculaura Decapitates Charlie 2",
+      categories: "draculaura gore nsfw vampire school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/1DiaperdDraculaura_2024.png",
+      title: "Anime Draculaura diaperd Farts",
+      categories: "draculaua nsfw school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://ddr666.neocities.org/MoreImages/DraculauraAndClawdeenFeedOnCloneGore_2025.remini-enhanced.png",
+      title: "Draculaura And Clawdeen Feeding on clone With Primal hunger 1",
+      categories: "draculaua gore nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://ddr666.neocities.org/MoreImages/DraculauraAndClawdeenFeedOnCloneGore_2025_2.remini-enhanced.png",
+      title: "Dracualura And Clawdeen feeding on clone with primal hunger 2",
+      categories: "draculaua nsfw school/uniform"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/80839233-fb6f-442a-998c-d34b191a8142.webp",
+      title: "R Rated Monster High Dracualura And Clawdeen feeding on flesh with historic uges1",
+      categories: "draculaua gore nsfw school/uniform"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/22e848da-acad-452d-872d-101e426a6e2d.webp",
+      title: "R rated Monster High- Dracualura And Claween Gore monster head",
+      categories: "draculaua gore nsfw school/uniform"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/a4b6fc7e-f793-4a08-944a-dcd9dd32629e.webp",
+      title: "R Rated Monster high- Dracualura And Clawdeen  Love And Flesh",
+      categories: "draculaua gore nsfw school/uniform"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/cbc78068-433f-4ed0-9cdf-d97f79e9cd3e.webp",
+      title: " R rated monster high Dracualura And Clawdeen devour Flesh worm",
+      categories: "draculaua gore nsfw school/uniform"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/f7d1ebec-708b-4dea-81bf-64f6dd376afc.webp",
+      title: "R rated monster high Dracualura And Clawdeen feeding Monster Reconing and the flesh",
+      categories: "draculaua gore nsfw school/uniform"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/DanesmeeVampireBat.png",
+      title: "Danesmee Romanova Monster bat 1",
+      categories: "danesmee demon monster"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/DanesmeeVampireBat1.png",
+      title: "Danesmee Romanova Monster Bat 2",
+      categories: "danesmee demon monster"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/Screenshot_2025-09-11-20-11-13-56_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Giant Danesmee Romanova Hybrid Monster Bat 3",
+      categories: "danesmee demon monster"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/Screenshot_2025-09-11-20-11-26-00_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee Romanova bat monster stalking prey",
+      categories: "danesmee demon monster"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/Screenshot_2025-09-11-20-11-53-85_99c04817c0de5652397fc8b56c3b3817.jpg",
+      title: "Danesmee Romanova Monster Bat tranformation- blood and monster saliva",
+      categories: "danesmee demon monster"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/1VampireGirlsDevourAlvinAndTheChipmunks.jpg",
+      title: "Danesmee Laura And Tayah Devour and grusomely kill alvin and the chipmunks",
+      categories: "danesmee school/uniform gore vampire"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/3VampireGirlsDevourAlvinAndTheChipmunks.jpg",
+      title: "danesmee, laura and tayah-Vampires Devour Alvin And the chipmunks",
+      categories: "danesmee vampires gore horror school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/4VampireGirlsDevourAlvinAndTheChipmunks.jpg",
+      title: "Tayah And Danesmee Devours Britney and Alvin",
+      categories: "danesmee gore vampires horror school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/LauraAndDanesmeeHybridBeginings.png",
+      title: "Danesmee And Laura",
+      categories: "danesmee"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot%202026-02-26%20142425.png",
+      title: "Danesmee and laura in waterfall spring",
+      categories: "danesmee school/uniform laura"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/DanesmeeAndLauraKissHOT!!!!!!.PNG",
+      title: "Danesmee and laura Kiss in the springs(18+)",
+      categories: "danesmee laura nsfw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot%202026-02-26%20142447.png",
+      title: "Danesmee and Laura romantic in the spring waterfall",
+      categories: "danesmee romance laura school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot%202026-02-26%20142512.png",
+      title: "Laura And danesmee spring waterfall 2",
+      categories: "danesmee laura school/uniform"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/FIGHTSCENE1.png",
+      title: "Fight Scene- the anti-law cathy danesmee and mike fight a horde of charlies",
+      categories: "antilaw demon gore fight"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/bolgas_lair.png",
+      title: "Bolgas brutal lair and making soup form victims",
+      categories: "monster demon gore horror antilaw"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/hotspring.png",
+      title: "hotspring- the anti-law cathy and mike gaming, danesmee eating pixie",
+      categories: "antilaw demon horror gore"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/mikeAnddanesmee.png",
+      title: "Mike And Danesmee 1",
+      categories: "danesmee mike romance"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/danesmeeAndMike10011.png",
+      title: "Mike And Danesmee 2",
+      categories: "danesmee mike romance"
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/IMG_20241027_152927.png",
+      title: "The Gang On A Hunt",
+      categories: "danesmee humor antilaw romance "
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/Screenshot_2021-09-13-21-42-09-01.png",
+      title: "The Anti-Law And Danesmee",
+      categories: "danesmee antilaw"
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/1DanesmeeEatsRabbit.jpg",
+      title: "Danesmee Romanova eating A Nice Succulent fleshy rabbit",
+      categories: "danesmee gore nsfw vampire "
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/3DanesmeeEatsRabbit.jpg",
+      title: "Danesmee Romanova eating A Nice Succulent fleshy rabbit 2",
+      categories: "danesmee gore nsfw vampire "
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/2DanesmeeEatsRabbit.jpg",
+      title: "Danesmee Romanova eating A Nice Succulent fleshy rabbit 3",
+      categories: "danesmee gore nsfw vampire "
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/4DanesmeeEatsRabbit.jpg",
+      title: "Night Danesmee Eats succulent rabbit prey And its guts in the night hunt",
+      categories: "danesmee gore nsfw vampire "
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/6DanesmeeEatsRabbit.jpg",
+      title: "Night Danesmee Eats succulent rabbit prey And its guts in the night hunt",
+      categories: "danesmee gore nsfw vampire "
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/DanesmeeRomanovaE-GirlEatsBunny_5.PNG",
+      title: "Danesmee With her Bunny prey",
+      categories: "danesmee horror nsfw "
+    });
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/DanesmeeRomanovaE-GirlEatsBunny_2.PNG",
+      title: "Danesmee Eats Bunny",
+      categories: "danesmee horror nsfw vampire "
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/2,1.png",
+      title: "The Anti-Law And Danesmee Approach Cabbin",
+      categories: "danesmee antilaw gore horror "
+    });
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/4.png",
+      title: "The Anti-Law And Danesmee Approach Cabbin With Body",
+      categories: "danesmee antilaw gore horror "
+    });
+
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/5.png",
+      title: "The Anti-Law And Danesmee talking outside at cabbin with body",
+      categories: "danesmee antilaw gore horror "
+    })
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/7.png",
+      title: "The Anti-Law And Danesmee walking to cultist troll horde bolgus lair tunnel entrence",
+      categories: "danesmee antilaw trolllair "
+    })
+    
+     galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/8.png",
+      title: "The Anti-Law And Danesmee in bolgus lair tunnels",
+      categories: "danesmee antilaw horror "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/9.png",
+      title: "The Anti-Law And Danesmee find brutalized victim in bolgus lair",
+      categories: "antilaw gore nsfw "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/10.png",
+      title: "mike captured by cultist trolls- the anti-law and danesmee in blogus lair",
+      categories: "danesmee antilaw gore horror demons monsters "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/11.png",
+      title: "The Fight In troll lair the ant-law shoots danesmee feeds on trolls",
+      categories: "danesmee antilaw gore horror demon/monster "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/12.png",
+      title: "The Anti-Law And Danesmee and mike ecscape bolgus lair",
+      categories: "danesmee antilaw gore horror demon monster"
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/14.png",
+      title: "The Anti-Law shoots troll gore lair",
+      categories: "danesmee antilaw gore horror demon monster "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/AnimeHybridArt/13.png",
+      title: "Mike And danesmee escape",
+      categories: "danesmee mike antilaw gore horror "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/34.png",
+      title: "Cathy And Ockay devours And killed posh Boy and Girl",
+      categories: "demon monster gore horror "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/35.png",
+      title: "Cathy Devours Posh boy- In Cathys Stoamch Acid Skin Desolve gore",
+      categories: "demon gore nsfw horror "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/29_1.png",
+      title: "Ockay attacks and kills Cultist",
+      categories: "demon monster gore horror "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/30_1.png",
+      title: "Cathy Bites Cultist neck gore",
+      categories: "demon monster gore horror "
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/31_1.png",
+      title: "Cathy And Ockay Slaughter cultists",
+      categories: "demon monster gore horror"
+    })
+    
+    galleryData.push({
+      url: "https://animehybridapocalypse.neocities.org/moreAnime1/40_1.png",
+      title: "soilders infected with exploding mushroom Ebola virus(hemorrhagic fever)",
+      categories: "gore horror virus"
+    })
+    
+    // ----------------------------------------------------
+    // 2) NOTHING BELOW HERE NEEDS TO BE TOUCHED
+    // ----------------------------------------------------
+
+    // Build gallery
+    const galleryGrid = document.getElementById('galleryGrid');
+
+    galleryData.forEach(item => {
+      const article = document.createElement('article');
+      article.className = 'art-card';
+      article.setAttribute('data-category', item.categories || '');
+
+      const tagsHtml = (item.categories || '')
+        .split(' ')
+        .filter(Boolean)
+        .slice(0, 3)
+        .map(tag => {
+          let cls = 'art-tag';
+          if (tag === 'danesmee') cls += ' pink';
+          if (tag === 'vampire' || tag === 'demon') cls += ' cyan';
+          if (tag === 'nsfw') cls += ' r18';
+          return `<span class="${cls}">${tag}</span>`;
+        })
+        .join('');
+
+      article.innerHTML = `
+        <div class="art-thumb-wrapper" data-full="${item.url}">
+          <img src="${item.url}" alt="${item.title}">
+          <div class="art-overlay-gradient"></div>
+          <div class="art-meta">
+            <h3 class="art-title">${item.title}</h3>
+            <div class="art-tags-row">
+              ${tagsHtml}
+            </div>
+          </div>
+        </div>
+      `;
+      galleryGrid.appendChild(article);
+    });
+
+    // Filter logic
+    (function() {
+      const pills = document.querySelectorAll('.filter-pill');
+      const cards = document.querySelectorAll('.art-card');
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => {
+          const filter = pill.getAttribute('data-filter');
+
+          pills.forEach(p => p.classList.remove('active'));
+          pill.classList.add('active');
+
+          cards.forEach(card => {
+            const categories = card.getAttribute('data-category') || '';
+            if (filter === 'all' || categories.includes(filter)) {
+              card.style.display = '';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    })();
+
+    // Lightbox logic
+    (function() {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const lightboxTitle = document.getElementById('lightboxTitle');
+      const closeBtn = document.getElementById('lightboxClose');
+
+      function openLightbox(src, title) {
+        lightboxImg.src = src;
+        lightboxTitle.textContent = title || 'Hybrid Apocalypse Anime Art';
+        lightbox.classList.add('active');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+      }
+
+      document.addEventListener('click', (e) => {
+        const wrapper = e.target.closest('.art-thumb-wrapper');
+        if (wrapper) {
+          const full = wrapper.getAttribute('data-full') || '';
+          const title = wrapper.querySelector('.art-title')?.textContent || '';
+          if (full) openLightbox(full, title);
+        }
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+      });
+    })();
+  </script>
+</body>
+</html>
